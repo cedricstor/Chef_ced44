@@ -22,7 +22,7 @@ title: Cedric Bendavid
 email: satiatemyhunger@gmail.com
 description: >-
   Private chef and catering services — bespoke dinners, cooking lessons, and event menus.
-baseurl: "Chef_ced44"
+baseurl: "chefced.ca"
 url: ""
 
 # Build settings
@@ -46,7 +46,7 @@ linkedin_username: cedric-bendavid-36440924a
 #   Anytime we want to publish new changes for the public.
 #         git add .
 #         git commit -m "initial commit"
-#         git push origin gh-pages
+#         git push origin gh-pages --force
 
 #Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
