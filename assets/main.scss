@@ -1,0 +1,172 @@
+@import "minima"; // pull in base theme
+
+---
+---
+
+
+/* Let SVG icons follow link color instead of forced grey */
+.svg-icon { fill: currentColor !important; }
+/* Brand colors via link color (icons inherit via currentColor) */
+.social-media-list a[href*="github.com"] { color: #000; }      /* GitHub */
+.social-media-list a[href*="instagram.com"] { color: #E1306C; }/* Instagram */
+.social-media-list a[href*="linkedin.com"] { color: #0077B5; } /* LinkedIn */
+.social-media-list a[href*="feed.xml"] { color: #f26522; }     /* RSS */
+
+.social-media-list a:hover { opacity: .85; text-decoration: none; }
+/* Icons only (hide usernames) */
+.social-media-list .username { display: none; }
+/* Social icons with brand colors */
+.social-media-list a[href*="github.com"] .svg-icon {
+  fill: #000; /* GitHub black */
+}
+
+.social-media-list a[href*="instagram.com"] .svg-icon {
+  fill: #E1306C; /* Instagram pink */
+}
+
+.social-media-list a[href*="linkedin.com"] .svg-icon {
+  fill: #0077B5; /* LinkedIn blue */
+}
+
+.social-media-list a[href*="feed.xml"] .svg-icon {
+  fill: #f26522; /* RSS orange */
+}
+
+.social-media-list a:hover .svg-icon {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+/* Hide social link text labels, show only icons */
+.social-media-list .username {
+  display: none;
+}
+/* Footer CTA alignment */
+.footer-col-3 {
+  .btn, .calendar-button, script + div { /* include-produced button */
+    display: inline-block;
+    margin-top: .6rem;
+  }
+  text-align: left; /* change to center if you want the whole column centered */
+}
+/* Newsletter block */
+.newsletter { margin: 1.25rem 0 2rem; }
+.newsletter__heading { margin: 0 0 .25rem; }
+.newsletter__text { color: $grey-color; margin-bottom: .75rem; }
+.newsletter__form { display: flex; gap: .5rem; flex-wrap: wrap; }
+.newsletter__input {
+  flex: 1 1 260px; min-width: 220px;
+  padding: .55rem .7rem; border: 1px solid $grey-color-light; border-radius: 6px;
+}
+.newsletter__btn { padding: .55rem 1rem; border-radius: 6px; }
+.visually-hidden { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.newsletter__rss { margin-top: .5rem; font-size: .95rem; color: $grey-color; }
+
+/* Home intro tweaks */
+.home-intro {
+  margin-bottom: 1.5rem;
+  p + script,
+  p + .calendar-button { margin-top: .75rem; }
+}
+
+/* Footer button styles */
+.btn {
+  display: inline-block;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #039BE5;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0277bd;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Recipes dropdown */
+.site-nav .dropdown { position: relative; display: inline-block; }
+.site-nav .dropdown-menu {
+  position: absolute; top: 100%; left: 0; min-width: 200px;
+  margin: .25rem 0 0; padding: .5rem 0;
+  background: #fff; border: 1px solid $grey-color-light; border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08); display: none; z-index: 999; list-style: none;
+}
+.site-nav .dropdown:hover .dropdown-menu,
+.site-nav .dropdown:focus-within .dropdown-menu { display: block; }
+.site-nav .dropdown-menu .page-link { display:block; padding:.5rem .9rem; margin:0; white-space:nowrap; }
+.site-nav .dropdown-menu .page-link:hover { background:#f7f7f7; text-decoration:none; }
+
+/* Mobile: inline items inside slide-down menu */
+@include media-query($on-palm) {
+  .site-nav .dropdown-menu {
+    position: static; display: block !important; box-shadow: none; border: 0;
+    background: transparent; padding: 0; margin: 0;
+  }
+  .site-nav .dropdown-menu .page-link { padding: 5px 10px; }
+}
+
+/* Recipe grid & cards (category pages) */
+.recipe-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-card {
+  background: #fff;
+  border: 1px solid $grey-color-light;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  transition: transform .12s ease, box-shadow .12s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  }
+}
+
+.recipe-card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipe-card__image-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Height is controlled inline via include size="sm|md|lg" */
+}
+
+.recipe-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.recipe-card__placeholder {
+  font-size: .9rem;
+  color: #999;
+}
+
+.recipe-card__title {
+  padding: .75rem .9rem 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}

@@ -1,0 +1,37 @@
+{%- comment -%}
+Usage:
+  {% include recipe-grid.html category="baking" %}
+  {% include recipe-grid.html category="baking" heading="Baking" %}
+{%- endcomment -%}
+
+{%- assign cat = include.category | downcase -%}
+{%- assign heading = include.heading | default: include.category | capitalize -%}
+
+<h2>{{ heading }}</h2>
+
+{%- assign raw = site.categories[cat] -%}
+{%- if raw and raw.size > 0 -%}
+  {%- assign posts_in_cat = raw | sort: "date" | reverse -%}
+  <ul class="recipe-grid">
+    {%- for post in posts_in_cat -%}
+      <li class="recipe-card">
+        <a href="{{ post.url | relative_url }}" class="recipe-card__link">
+          <div class="recipe-card__image-wrap">
+            {%- if post.image -%}
+              <img
+                src="{{ post.image | relative_url }}"
+                alt="{{ post.image_alt | default: post.title | escape }}"
+                loading="lazy"
+                class="recipe-card__image">
+            {%- else -%}
+              <div class="recipe-card__placeholder" aria-hidden="true">No image</div>
+            {%- endif -%}
+          </div>
+          <div class="recipe-card__title">{{ post.title }}</div>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- else -%}
+  <p>No recipes in this category yet.</p>
+{%- endif -%}

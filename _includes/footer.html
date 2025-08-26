@@ -1,0 +1,42 @@
+<footer class="site-footer h-card" role="contentinfo" aria-labelledby="footer-heading">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+
+    <h2 id="footer-heading" class="footer-heading">{{ site.title | escape }}</h2>
+
+    <div class="footer-col-wrapper">
+      <!-- Column 1: Contact -->
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if site.author -%}
+              {{ site.author | escape }}
+            {%- else -%}
+              {{ site.title | escape }}
+            {%- endif -%}
+          </li>
+          {%- if site.email -%}
+            <li>
+              <a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+
+      <!-- Column 2: Social (icons only; labels hidden via CSS) -->
+      <div class="footer-col footer-col-2">
+        {%- include social.html -%}
+      </div>
+
+      <!-- Column 3: Description + Calendar button -->
+      <div class="footer-col footer-col-3">
+        <p>{{- site.description | escape -}}</p>
+
+        <!-- Same popup button include you use elsewhere -->
+        {% include calendar-button.html %}
+      </div>
+    </div>
+
+  </div>
+</footer>

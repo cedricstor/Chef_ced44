@@ -1,0 +1,45 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
+          </span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  {%- if page.image -%}
+    <figure class="post-featured">
+      <img src="{{ page.image | relative_url }}"
+           alt="{{ page.image_alt | default: page.title | escape }}"
+           itemprop="image"
+           loading="lazy"
+           style="max-width:100%;height:auto;border-radius:8px;">
+      {%- if page.image_caption -%}
+        <figcaption class="post-featured__caption" style="font-size:.9rem;color:#666;margin-top:.4rem;">
+          {{ page.image_caption }}
+        </figcaption>
+      {%- endif -%}
+    </figure>
+  {%- endif -%}
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

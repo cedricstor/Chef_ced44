@@ -1,82 +1,54 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Cedric Bendavid
 email: satiatemyhunger@gmail.com
 description: >-
   Private chef and catering services — bespoke dinners, cooking lessons, and event menus.
-baseurl: ""
-url: ""
+
+# Custom domain setup
+url: "https://chefced.ca"
+baseurl: ""   # leave empty for root domain
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
 
+# Navigation (Minima v2)
+header_pages:
+  - Recipes.markdown
+  - about.markdown
+  - consultation.markdown
+
+# Defaults for posts
 defaults:
-  -
-    scope:
-      path: ""
+  - scope:
+      path: "_posts"
       type: "posts"
     values:
       layout: "post"
 
-# Minima v2 style social links
+# Social links (footer icons)
 github_username: cedricstor
 instagram_username: chef_ced44
 linkedin_username: cedric-bendavid-36440924a
 
-minima:
-  nav_links:
-    - title: About
-      url: /about/
-    - title: Consultation
-      url: /consultation/
-      
-#   Anytime we want to publish new changes for the public.
-#         git add .
-#         git commit -m "initial commit"
-#         git push origin gh-pages --force
+# Calendar button (used by footer and includes)
+calendar:
+  button:
+    url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0pdIruamkyAJ8x7IN_EWPi4cueunjr73Ngvj63droip65SIKSyX3RZvKSnx63dwSV4XoajJ8Kt?gv=true"
+    color: "#039BE5"
+    label: "Book an appointment"
 
-#Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+# Sass/SCSS compile options
+sass:
+  sass_dir: _sass
+  style: compressed
 
-#[jekyll-docs]: https://jekyllrb.com/docs/home
-#[jekyll-gh]:   https://github.com/jekyll/jekyll
-#[jekyll-talk]: https://talk.jekyllrb.com/
+# Newsletter signup (Buttondown example)
+newsletter:
+  form_action: "https://buttondown.email/api/emails/embed-subscribe/your-list-id"
+  heading: "Subscribe for updates"
+  text: "Get new recipes and announcements by email."
+  button_label: "Subscribe"
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# RSS feed label
+rss: "RSS"

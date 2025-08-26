@@ -1,0 +1,57 @@
+/* Recipe grid & cards (category pages) */
+.recipe-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.recipe-card {
+  background: #fff;
+  border: 1px solid $grey-color-light;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  transition: transform .12s ease, box-shadow .12s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  }
+}
+
+.recipe-card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.recipe-card__image-wrap {
+  /* Height is set inline by the include (sm/md/lg), this provides the rest */
+  width: 100%;
+  overflow: hidden;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.recipe-card__placeholder {
+  font-size: .9rem;
+  color: #999;
+}
+
+.recipe-card__title {
+  padding: .75rem .9rem 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}

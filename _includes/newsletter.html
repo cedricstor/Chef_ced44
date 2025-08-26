@@ -1,0 +1,25 @@
+{%- if site.newsletter.form_action -%}
+<section class="newsletter">
+  <h2 class="newsletter__heading">{{ site.newsletter.heading | default: "Subscribe for updates" }}</h2>
+  <p class="newsletter__text">{{ site.newsletter.text | default: "Get new recipes and announcements by email." }}</p>
+
+  <form action="{{ site.newsletter.form_action }}" method="post" target="_blank" novalidate class="newsletter__form">
+    <label for="mce-EMAIL" class="visually-hidden">Email address</label>
+    <input id="mce-EMAIL" name="EMAIL" type="email" placeholder="you@example.com" required class="newsletter__input">
+    <button type="submit" class="btn btn-primary newsletter__btn">
+      {{ site.newsletter.button_label | default: "Subscribe" }}
+    </button>
+
+    <!-- Honeypot to reduce spam -->
+    <div style="position:absolute; left:-5000px;" aria-hidden="true">
+      <input type="text" name="b_fake_trap" tabindex="-1" value="">
+    </div>
+  </form>
+
+  {%- if site.feed.path -%}
+    <p class="newsletter__rss">
+      Prefer RSS? <a href="{{ site.feed.path | relative_url }}">Subscribe via RSS</a>
+    </p>
+  {%- endif -%}
+</section>
+{%- endif -%}
