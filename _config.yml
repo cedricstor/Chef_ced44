@@ -43,6 +43,13 @@ github_username: cedricstor
 instagram_username: chef_ced44
 linkedin_username: cedric-bendavid-36440924a
 
+minima:
+  nav_links:
+    - title: About
+      url: /about/
+    - title: Consultation
+      url: /consultation/
+      
 #   Anytime we want to publish new changes for the public.
 #         git add .
 #         git commit -m "initial commit"
